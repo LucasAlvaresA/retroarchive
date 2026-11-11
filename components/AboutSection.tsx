@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Sparkles } from "lucide-react";
 import { games } from "@/data/games";
 import { useLanguage } from "@/lib/i18n";
@@ -35,11 +36,15 @@ export default function AboutSection() {
                                 className={`about-sleeve about-sleeve-${index + 1}`}
                                 key={game.id}
                             >
-                                <img
-                                    src={game.coverImage}
-                                    alt={`${game.title} ${t.about.coverAlt}`}
-                                    loading="lazy"
-                                />
+                                {game.coverImage && (
+                                    <Image
+                                        src={game.coverImage}
+                                        alt={`${game.title} ${t.about.coverAlt}`}
+                                        fill
+                                        sizes="(max-width: 760px) 40vw, 18vw"
+                                        loading="lazy"
+                                    />
+                                )}
                             </div>
                         ))}
                     </div>

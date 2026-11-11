@@ -5,7 +5,6 @@ A responsive, frontend-only Next.js showcase for a curated library of classic ga
 ## Stack
 - Next.js App Router + React + TypeScript
 - Tailwind CSS v4 (with bespoke CSS for the visual system)
-- Framer Motion
 - Lucide React
 
 ## Run locally
@@ -31,6 +30,7 @@ components/
   GameCollection.tsx
   GameDetailsModal.tsx
   GamingTimeline.tsx
+  HeroSection.tsx
   Header.tsx
 data/
   games.ts
@@ -42,11 +42,11 @@ scripts/
 ```
 
 ## Notes
-- The compact game catalog is grouped by platform in `data/game-catalog/`; long descriptions and trivia are grouped in `data/game-details/` and loaded when a game is opened.
-- Run `npm run validate:data` to check catalog/detail consistency, localized fields, platform assignments and referenced cover files. Missing and unreferenced cover art is reported for curation; the UI fallback remains supported.
+- The catalog presents four curated games per platform in `data/game-catalog/`; long descriptions and trivia are grouped in `data/game-details/` and loaded when a game is opened.
+- Run `npm run validate:data` to check the four-game selection, catalog/detail consistency, translations, and local cover files. Unreferenced artwork is reported for curation; the UI fallback remains supported.
 - Collection filters and the game details modal run entirely in React state.
 - Modal supports backdrop click, Escape, and background scroll locking.
-- Cover art uses Wikimedia file redirects; a designed fallback cover is shown if a remote cover file is unavailable. The timeline uses remote editorial photography.
+- Game covers and timeline artwork are local and rendered with responsive Next.js image optimization.
 - This is an independent fan showcase. Game names, marks and trademarks belong to their respective owners.
 
 ## Visual refinement pass

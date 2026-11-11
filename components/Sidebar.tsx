@@ -23,24 +23,24 @@ export default function Sidebar() {
     const links = [
         { id: "home", href: "#home", label: t.sidebar.home, icon: Home, index: "01" },
         {
-            id: "collection",
-            href: "#collection",
-            label: t.sidebar.collection,
-            icon: LayoutGrid,
-            index: "02",
-        },
-        {
             id: "eras",
             href: "#eras",
             label: t.sidebar.timeline,
             icon: History,
+            index: "02",
+        },
+        {
+            id: "collection",
+            href: "#collection",
+            label: t.sidebar.collection,
+            icon: LayoutGrid,
             index: "03",
         },
         { id: "about", href: "#about", label: t.sidebar.about, icon: Sparkles, index: "04" },
     ];
 
     useEffect(() => {
-        const sections = ["home", "collection", "eras", "about"]
+        const sections = ["home", "eras", "collection", "about"]
             .map((id) => document.getElementById(id))
             .filter((section): section is HTMLElement => section !== null);
 

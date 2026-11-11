@@ -25,8 +25,8 @@ export default function Footer() {
             <div className="footer-bottom">
                 <span>{t.footer.copyright}</span>
                 <div>
-                    <a href="#collection">{t.footer.collection}</a>
                     <a href="#eras">{t.footer.timeline}</a>
+                    <a href="#collection">{t.footer.collection}</a>
                     <a href="#about">{t.footer.about}</a>
                 </div>
                 <span>

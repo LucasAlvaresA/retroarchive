@@ -22,6 +22,7 @@ const errors = [];
 const warnings = [];
 const platforms = new Set(platformOrder);
 const gameById = new Map();
+const gamesPerPlatform = new Map(platformOrder.map((platform) => [platform, 0]));
 const referencedCovers = new Set();
 const imagesDirectory = path.join(root, "public", "images");
 
@@ -61,6 +62,11 @@ for (const game of games) {
 
     if (!platforms.has(game.platform)) {
         errors.push(`Unknown platform for "${game.id}": ${game.platform}.`);
+    } else {
+        gamesPerPlatform.set(
+            game.platform,
+            gamesPerPlatform.get(game.platform) + 1,
+        );
     }
 
     if (game.coverImage) {
@@ -82,6 +88,14 @@ for (const game of games) {
         }
     } else {
         warnings.push(`No cover art for "${game.id}".`);
+    }
+}
+
+for (const [platform, count] of gamesPerPlatform) {
+    if (count !== 4) {
+        errors.push(
+            `${platform} must have exactly four curated games; found ${count}.`,
+        );
     }
 }
 

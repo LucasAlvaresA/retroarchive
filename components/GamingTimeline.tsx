@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
 import { eras } from "@/data/eras";
@@ -33,19 +33,21 @@ export default function GamingTimeline() {
                 <p className="section-intro">{t.timeline.intro}</p>
             </div>
             <div className="era-list">
-                {eras.map((era, i) => (
-                    <motion.article
+                {eras.map((era) => (
+                    <article
                         className="era-row"
                         key={era.number}
-                        initial={{ opacity: 0, y: 18 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
-                        transition={{ duration: 0.45, delay: i * 0.03 }}
                     >
                         <div className="era-number">{era.number}</div>
                         {era.image ? (
                             <div className="era-image">
-                                <img src={era.image} alt="" loading="lazy" />
+                                <Image
+                                    src={era.image}
+                                    alt=""
+                                    fill
+                                    sizes="(max-width: 760px) 28vw, (max-width: 1180px) 30vw, 25vw"
+                                    loading="lazy"
+                                />
                                 <span>{era.tag[lang]}</span>
                             </div>
                         ) : (
@@ -73,7 +75,7 @@ export default function GamingTimeline() {
                         <span className="era-arrow">
                             <ArrowUpRight size={19} />
                         </span>
-                    </motion.article>
+                    </article>
                 ))}
             </div>
         </section>

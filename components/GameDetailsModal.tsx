@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import {
     ArrowUpRight,
     CalendarDays,
@@ -71,27 +71,20 @@ export default function GameDetailsModal({
     }, [game, onClose]);
 
     return (
-        <AnimatePresence>
+        <>
             {game && (
-                <motion.div
+                <div
                     className="modal-backdrop"
                     role="presentation"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
                     onMouseDown={(event) => {
                         if (event.target === event.currentTarget) onClose();
                     }}
                 >
-                    <motion.section
+                    <section
                         className="game-modal"
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="modal-title"
-                        initial={{ opacity: 0, y: 28, scale: 0.97 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 18, scale: 0.98 }}
-                        transition={{ duration: 0.28, ease: "easeOut" }}
                     >
                         <button
                             className="modal-close"
@@ -102,9 +95,12 @@ export default function GameDetailsModal({
                         </button>
                         <div className="modal-art">
                             {game.coverImage ? (
-                                <img
+                                <Image
                                     src={game.coverImage}
                                     alt={`${game.title} ${t.modal.coverAlt}`}
+                                    fill
+                                    sizes="(max-width: 760px) 90vw, 42vw"
+                                    loading="eager"
                                     onError={(event) => {
                                         event.currentTarget.style.display =
                                             "none";
@@ -214,9 +210,9 @@ export default function GameDetailsModal({
                                 {t.modal.preserved} <ArrowUpRight size={13} />
                             </div>
                         </div>
-                    </motion.section>
-                </motion.div>
+                    </section>
+                </div>
             )}
-        </AnimatePresence>
+        </>
     );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
 import { useState } from "react";
@@ -21,30 +21,22 @@ export default function GameCard({
     const showCover = Boolean(game.coverImage) && !imageFailed;
 
     return (
-        <motion.button
+        <button
             type="button"
             className="game-card"
             onClick={() => onSelect(game)}
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.12 }}
-            transition={{
-                duration: 0.48,
-                delay: (index % 4) * 0.055,
-                ease: [0.22, 1, 0.36, 1],
-            }}
-            whileHover={{ y: -7 }}
             aria-label={`${t.card.viewDetails} ${game.title}`}
         >
             <div className="cover-wrap">
                 <span className="cover-number">
                     {String(index + 1).padStart(2, "0")}
                 </span>
-                {showCover ? (
-                    // Wikimedia-hosted cover art; the designed fallback keeps the layout intact if a file moves.
-                    <img
+                {showCover && game.coverImage ? (
+                    <Image
                         src={game.coverImage}
                         alt={`${game.title} ${t.card.originalCover}`}
+                        fill
+                        sizes="(max-width: 760px) 45vw, (max-width: 1180px) 27vw, 20vw"
                         loading="lazy"
                         onError={() => setImageFailed(true)}
                     />
@@ -79,6 +71,6 @@ export default function GameCard({
                 </div>
                 <h3>{game.title}</h3>
             </div>
-        </motion.button>
+        </button>
     );
 }
