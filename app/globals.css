@@ -893,3 +893,51 @@ body { overflow-x: hidden; }
   line-height: 1.35;
 }
 
+/* Load-more control for the full archive. */
+.load-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 52px 0 6px;
+}
+.load-more-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 23px;
+  border: 1px solid rgba(216, 242, 122, .32);
+  border-radius: 999px;
+  background: rgba(216, 242, 122, .06);
+  color: var(--acid);
+  font: 10px var(--mono);
+  letter-spacing: .13em;
+  cursor: pointer;
+  transition:
+    color .22s ease,
+    background .22s ease,
+    border-color .22s ease,
+    transform .22s ease,
+    box-shadow .22s ease;
+}
+.load-more-button svg {
+  transition: transform .22s ease;
+}
+.load-more-button:hover {
+  color: #15151a;
+  background: var(--acid);
+  border-color: var(--acid);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(216, 242, 122, .13);
+}
+.load-more-button:hover svg {
+  transform: translateY(2px);
+}
+.load-more-button:focus-visible {
+  outline: 2px solid var(--acid);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .load-more-wrap { margin-top: 38px; }
+  .load-more-button { padding: 13px 18px; font-size: 9px; }
+}
+

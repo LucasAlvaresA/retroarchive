@@ -15,7 +15,9 @@ export type Platform =
     | "PlayStation 4"
     | "Xbox One"
     | "Nintendo Switch"
-    | "PlayStation 5";
+    | "Xbox Series S/X"
+    | "PlayStation 5"
+    | "Nintendo Switch 2";
 
 export type Localized = { en: string; pt: string };
 
@@ -50,7 +52,9 @@ export const platformOrder: Platform[] = [
     "PlayStation 4",
     "Xbox One",
     "Nintendo Switch",
+    "Xbox Series S/X",
     "PlayStation 5",
+    "Nintendo Switch 2",
 ];
 
 export const platformAccents: Record<Platform, string> = {
@@ -70,7 +74,9 @@ export const platformAccents: Record<Platform, string> = {
     "PlayStation 4": "#6d8cff",
     "Xbox One": "#7ee787",
     "Nintendo Switch": "#ff6b6b",
+    "Xbox Series S/X": "#48d17a",
     "PlayStation 5": "#7ad7ff",
+    "Nintendo Switch 2": "#ff5f7e",
 };
 
 const L = (en: string, pt: string): Localized => ({ en, pt });
@@ -184,31 +190,6 @@ export const games: Game[] = [
             ],
         ),
     },
-    {
-        id: "contra",
-        title: "Contra",
-        coverImage: "",
-        releaseDate: L("February 9, 1988 (Japan)", "9 de fevereiro de 1988 (Japão)"),
-        releaseYear: 1988,
-        publisher: "Konami",
-        developer: "Konami",
-        platform: "NES",
-        genre: L("Run and gun", "Run and gun"),
-        description: L(
-            "Two commandos fight through an alien invasion with relentless action and imaginative bosses. Precise controls and two-player co-op made it an arcade-style classic at home.",
-            "Dois comandos enfrentam uma invasão alienígena com ação implacável e chefes imaginativos. Controles precisos e cooperativo para dois jogadores fizeram dele um clássico estilo arcade em casa.",
-        ),
-        trivia: T(
-            [
-                "The NES version is famous for its Konami Code entry, which grants extra lives.",
-                "It was originally an arcade game released in 1987.",
-            ],
-            [
-                "A versão de NES é famosa pelo código Konami, que concede vidas extras.",
-                "Originalmente, foi um jogo de arcade lançado em 1987.",
-            ],
-        ),
-    },
 
     // ── SNES ─────────────────────────────────────────────────────────────
     {
@@ -262,33 +243,6 @@ export const games: Game[] = [
                 "A estrutura de mundos paralelos tornou-se uma marca influente da série.",
                 "Takashi Tezuka dirigiu o jogo, com Kensuke Tanabe entre os roteiristas.",
                 "O lançamento japonês precedeu o norte-americano em vários meses.",
-            ],
-        ),
-    },
-    {
-        id: "donkey-kong-country",
-        title: "Donkey Kong Country",
-        coverImage: "/images/game-06.png",
-        releaseDate: L("November 18, 1994 (North America)", "18 de novembro de 1994 (América do Norte)"),
-        releaseYear: 1994,
-        publisher: "Nintendo",
-        developer: "Rare",
-        platform: "SNES",
-        genre: L("Platformer", "Plataforma"),
-        description: L(
-            "Donkey Kong and Diddy Kong cross a vibrant island to recover their stolen banana hoard. Pre-rendered character art and a lively soundtrack gave the platformer a striking visual identity.",
-            "Donkey Kong e Diddy Kong cruzam uma ilha vibrante para recuperar o tesouro de bananas roubado. Arte pré-renderizada e uma trilha animada deram ao platformer uma identidade visual marcante.",
-        ),
-        trivia: T(
-            [
-                "The game was developed by the British studio Rare.",
-                "Its visual style was built from pre-rendered 3D models converted into sprites.",
-                "David Wise composed much of its atmospheric soundtrack.",
-            ],
-            [
-                "O jogo foi desenvolvido pelo estúdio britânico Rare.",
-                "Seu visual foi construído a partir de modelos 3D pré-renderizados convertidos em sprites.",
-                "David Wise compôs boa parte de sua trilha atmosférica.",
             ],
         ),
     },
@@ -450,31 +404,6 @@ export const games: Game[] = [
             ],
         ),
     },
-    {
-        id: "mortal-kombat-ii",
-        title: "Mortal Kombat II",
-        coverImage: "",
-        releaseDate: L("September 9, 1994 (North America)", "9 de setembro de 1994 (América do Norte)"),
-        releaseYear: 1994,
-        publisher: "Midway",
-        developer: "Sculptured Software",
-        platform: "Mega Drive",
-        genre: L("Fighting", "Luta"),
-        description: L(
-            "The tournament returns with a larger roster, faster combat and the series' signature finishing moves. The Mega Drive version became a defining competitive fighting game of its generation.",
-            "O torneio retorna com um elenco maior, combate mais rápido e os golpes finais característicos da série. A versão para Mega Drive se tornou um dos fighting games competitivos mais marcantes de sua geração.",
-        ),
-        trivia: T(
-            [
-                "The home version was notable for keeping the arcade's blood and fatalities intact.",
-                "It expanded the roster with characters such as Kitana, Kung Lao and Mileena.",
-            ],
-            [
-                "A versão doméstica se destacou por manter o sangue e os fatalities do arcade.",
-                "Ampliou o elenco com personagens como Kitana, Kung Lao e Mileena.",
-            ],
-        ),
-    },
 
     // ── PLAYSTATION ──────────────────────────────────────────────────────
     {
@@ -501,33 +430,6 @@ export const games: Game[] = [
                 "Foi o primeiro jogo de Crash Bandicoot da Naughty Dog.",
                 "O jogo foi projetado em torno de uma experiência de plataforma 3D conduzida por personagem.",
                 "O design original de Crash foi criado por Charles Zembillas.",
-            ],
-        ),
-    },
-    {
-        id: "tekken-3",
-        title: "Tekken 3",
-        coverImage: "/images/game-11.png",
-        releaseDate: L("March 26, 1998 (PlayStation, Japan)", "26 de março de 1998 (PlayStation, Japão)"),
-        releaseYear: 1998,
-        publisher: "Namco",
-        developer: "Namco",
-        platform: "PlayStation",
-        genre: L("Fighting", "Luta"),
-        description: L(
-            "The King of Iron Fist Tournament returns with a new generation of fighters. Fluid movement, a deep roster and accessible-yet-technical combat helped establish Tekken 3 as a genre classic.",
-            "O Torneio Rei do Punho de Ferro retorna com uma nova geração de lutadores. Movimento fluido, um elenco profundo e combate acessível e técnico ajudaram a consagrar Tekken 3 como clássico do gênero.",
-        ),
-        trivia: T(
-            [
-                "The arcade version debuted in Japan in 1997, before the PlayStation conversion arrived in 1998.",
-                "The game introduced series characters including Jin Kazama, Hwoarang and Xiaoyu.",
-                "It was built on Namco's System 12 arcade hardware.",
-            ],
-            [
-                "A versão de arcade estreou no Japão em 1997, antes da conversão para PlayStation em 1998.",
-                "O jogo introduziu personagens da série como Jin Kazama, Hwoarang e Xiaoyu.",
-                "Foi construído sobre o hardware de arcade System 12 da Namco.",
             ],
         ),
     },
@@ -714,31 +616,6 @@ export const games: Game[] = [
             ],
         ),
     },
-    {
-        id: "banjo-kazooie",
-        title: "Banjo-Kazooie",
-        coverImage: "",
-        releaseDate: L("June 29, 1998 (North America)", "29 de junho de 1998 (América do Norte)"),
-        releaseYear: 1998,
-        publisher: "Nintendo",
-        developer: "Rare",
-        platform: "Nintendo 64",
-        genre: L("3D platformer", "Plataforma 3D"),
-        description: L(
-            "A bear and a wisecracking bird explore a witch's lair to rescue Banjo's sister. Witty characters and densely packed worlds made it a standout of the collect-a-thon era.",
-            "Um urso e uma ave falante exploram o covil de uma bruxa para resgatar a irmã de Banjo. Personagens espirituosos e mundos densos fizeram dele um destaque da era dos collect-a-thons.",
-        ),
-        trivia: T(
-            [
-                "It was developed by Rare, the studio behind Donkey Kong Country.",
-                "The game's dialogue and rhyming villain became fan favorites.",
-            ],
-            [
-                "Foi desenvolvido pela Rare, o estúdio por trás de Donkey Kong Country.",
-                "Os diálogos e a vilã que fala em rimas se tornaram favoritos dos fãs.",
-            ],
-        ),
-    },
 
     // ── DREAMCAST ────────────────────────────────────────────────────────
     {
@@ -838,31 +715,6 @@ export const games: Game[] = [
             [
                 "É creditado por popularizar os gráficos 3D com cel-shading.",
                 "A trilha sonora misturava faixas de música eletrônica, hip-hop e funk.",
-            ],
-        ),
-    },
-    {
-        id: "skies-of-arcadia",
-        title: "Skies of Arcadia",
-        coverImage: "",
-        releaseDate: L("October 5, 2000 (Japan)", "5 de outubro de 2000 (Japão)"),
-        releaseYear: 2000,
-        publisher: "Sega",
-        developer: "Overworks",
-        platform: "Dreamcast",
-        genre: L("Role-playing", "RPG"),
-        description: L(
-            "A crew of air pirates sails a world of floating islands in search of ancient treasures. Optimistic adventure and airship exploration made it a beloved Dreamcast RPG.",
-            "Uma tripulação de piratas do céu navega por um mundo de ilhas flutuantes em busca de tesouros antigos. A aventura otimista e a exploração de dirigíveis fizeram dele um RPG querido do Dreamcast.",
-        ),
-        trivia: T(
-            [
-                "It was developed by Overworks, a Sega studio formed from the Team Shinobi team.",
-                "The game was later ported to the GameCube as Skies of Arcadia Legends.",
-            ],
-            [
-                "Foi desenvolvido pela Overworks, um estúdio da Sega formado pela equipe Team Shinobi.",
-                "Mais tarde, o jogo foi portado para o GameCube como Skies of Arcadia Legends.",
             ],
         ),
     },
@@ -968,31 +820,6 @@ export const games: Game[] = [
             ],
         ),
     },
-    {
-        id: "god-of-war-ii",
-        title: "God of War II",
-        coverImage: "",
-        releaseDate: L("March 13, 2007 (North America)", "13 de março de 2007 (América do Norte)"),
-        releaseYear: 2007,
-        publisher: "Sony Computer Entertainment",
-        developer: "Santa Monica Studio",
-        platform: "PlayStation 2",
-        genre: L("Action-adventure", "Ação e aventura"),
-        description: L(
-            "Kratos seeks the Sisters of Fate after being betrayed by Zeus, cutting a brutal path through Greek myth. Its spectacle and combat made it a late-generation showcase for the PS2.",
-            "Kratos busca as Irmãs do Destino após ser traído por Zeus, abrindo um caminho brutal pela mitologia grega. Seu espetáculo e combate fizeram dele uma vitrine de fim de geração para o PS2.",
-        ),
-        trivia: T(
-            [
-                "It was directed by Cory Barlog.",
-                "The game was one of the final major first-party releases for the PlayStation 2.",
-            ],
-            [
-                "Foi dirigido por Cory Barlog.",
-                "Foi um dos últimos grandes lançamentos first-party do PlayStation 2.",
-            ],
-        ),
-    },
 
     // ── GAMECUBE ─────────────────────────────────────────────────────────
     {
@@ -1095,31 +922,6 @@ export const games: Game[] = [
             ],
         ),
     },
-    {
-        id: "paper-mario-thousand-year-door",
-        title: "Paper Mario: The Thousand-Year Door",
-        coverImage: "",
-        releaseDate: L("July 22, 2004 (Japan)", "22 de julho de 2004 (Japão)"),
-        releaseYear: 2004,
-        publisher: "Nintendo",
-        developer: "Intelligent Systems",
-        platform: "GameCube",
-        genre: L("Role-playing", "RPG"),
-        description: L(
-            "Mario hunts for crystal stars in a stage-play world full of paper-thin jokes and surprisingly sharp writing. Turn-based battles and partner abilities made it a fan-favorite RPG.",
-            "Mario busca estrelas de cristal em um mundo de teatro repleto de piadas de papel e uma escrita surpreendentemente afiada. Batalhas por turnos e habilidades de parceiros fizeram dele um RPG favorito dos fãs.",
-        ),
-        trivia: T(
-            [
-                "The game is presented as a stage performance, complete with an audience.",
-                "It was developed by Intelligent Systems.",
-            ],
-            [
-                "O jogo é apresentado como uma peça de teatro, com plateia e tudo.",
-                "Foi desenvolvido pela Intelligent Systems.",
-            ],
-        ),
-    },
 
     // ── XBOX ─────────────────────────────────────────────────────────────
     {
@@ -1198,31 +1000,6 @@ export const games: Game[] = [
         ),
     },
     {
-        id: "halo-2",
-        title: "Halo 2",
-        coverImage: "",
-        releaseDate: L("November 9, 2004 (North America)", "9 de novembro de 2004 (América do Norte)"),
-        releaseYear: 2004,
-        publisher: "Microsoft Game Studios",
-        developer: "Bungie",
-        platform: "Xbox",
-        genre: L("First-person shooter", "Tiro em primeira pessoa"),
-        description: L(
-            "Master Chief defends Earth while the Arbiter's story unfolds in parallel. Its online multiplayer helped define console shooters for a generation.",
-            "Master Chief defende a Terra enquanto a história do Arbiter se desenrola em paralelo. Seu multiplayer online ajudou a definir os shooters de console por uma geração.",
-        ),
-        trivia: T(
-            [
-                "It was a flagship title for Xbox Live.",
-                "The game introduced dual wielding and playable Covenant characters.",
-            ],
-            [
-                "Foi um título de destaque do Xbox Live.",
-                "O jogo introduziu o uso de duas armas e personagens Covenant jogáveis.",
-            ],
-        ),
-    },
-    {
         id: "fable",
         title: "Fable",
         coverImage: "",
@@ -1271,31 +1048,6 @@ export const games: Game[] = [
             [
                 "Foi construído com a Unreal Engine 3 e se tornou uma vitrine da tecnologia.",
                 "O jogo popularizou a fórmula de tiro em terceira pessoa baseada em cobertura.",
-            ],
-        ),
-    },
-    {
-        id: "bioshock",
-        title: "BioShock",
-        coverImage: "",
-        releaseDate: L("August 21, 2007 (North America)", "21 de agosto de 2007 (América do Norte)"),
-        releaseYear: 2007,
-        publisher: "2K Games",
-        developer: "Irrational Games",
-        platform: "Xbox 360",
-        genre: L("First-person shooter", "Tiro em primeira pessoa"),
-        description: L(
-            "A plane crash leads to the underwater city of Rapture, where ideology and genetic power have gone terribly wrong. Its atmosphere and storytelling made it one of the medium's most discussed games.",
-            "Um acidente de avião leva à cidade submersa de Rapture, onde ideologia e poder genético deram terrivelmente errado. Sua atmosfera e narrativa fizeram dele um dos jogos mais discutidos do meio.",
-        ),
-        trivia: T(
-            [
-                "It was directed by Ken Levine.",
-                "The game's Big Daddy and Little Sister characters became instantly recognizable.",
-            ],
-            [
-                "Foi dirigido por Ken Levine.",
-                "Os personagens Big Daddy e Little Sister se tornaram imediatamente reconhecíveis.",
             ],
         ),
     },
@@ -1376,31 +1128,6 @@ export const games: Game[] = [
     },
 
     // ── PLAYSTATION 3 ────────────────────────────────────────────────────
-    {
-        id: "mgs4",
-        title: "Metal Gear Solid 4: Guns of the Patriots",
-        coverImage: "",
-        releaseDate: L("June 12, 2008 (Worldwide)", "12 de junho de 2008 (Mundial)"),
-        releaseYear: 2008,
-        publisher: "Konami",
-        developer: "Kojima Productions",
-        platform: "PlayStation 3",
-        genre: L("Stealth action", "Ação furtiva"),
-        description: L(
-            "An aging Solid Snake takes on a final mission in a world where war has become a paid service. Its long cinematics and emotional closure made it a defining PS3 exclusive.",
-            "Um Solid Snake envelhecido assume uma missão final em um mundo onde a guerra se tornou um serviço pago. Suas longas cenas cinematográficas e conclusão emocional fizeram dele um exclusivo marcante do PS3.",
-        ),
-        trivia: T(
-            [
-                "It was directed by Hideo Kojima and concluded Solid Snake's story.",
-                "The game was praised for its technical presentation on PlayStation 3.",
-            ],
-            [
-                "Foi dirigido por Hideo Kojima e concluiu a história de Solid Snake.",
-                "O jogo foi elogiado por sua apresentação técnica no PlayStation 3.",
-            ],
-        ),
-    },
     {
         id: "demons-souls",
         title: "Demon's Souls",
@@ -1579,31 +1306,6 @@ export const games: Game[] = [
         ),
     },
     {
-        id: "super-smash-bros-brawl",
-        title: "Super Smash Bros. Brawl",
-        coverImage: "",
-        releaseDate: L("January 31, 2008 (Japan)", "31 de janeiro de 2008 (Japão)"),
-        releaseYear: 2008,
-        publisher: "Nintendo",
-        developer: "Sora Ltd.; Game Arts",
-        platform: "Wii",
-        genre: L("Fighting", "Luta"),
-        description: L(
-            "Nintendo's crossover fighter expanded with third-party guests, a story campaign and extensive customization. Its Subspace Emissary mode turned the roster into an adventure.",
-            "O jogo de luta crossover da Nintendo se expandiu com convidados de terceiros, uma campanha e ampla personalização. Seu modo Subspace Emissary transformou o elenco em uma aventura.",
-        ),
-        trivia: T(
-            [
-                "Solid Snake and Sonic the Hedgehog joined the roster.",
-                "The game introduced the Subspace Emissary story mode.",
-            ],
-            [
-                "Solid Snake e Sonic the Hedgehog entraram no elenco.",
-                "O jogo introduziu o modo história Subspace Emissary.",
-            ],
-        ),
-    },
-    {
         id: "xenoblade-chronicles",
         title: "Xenoblade Chronicles",
         coverImage: "",
@@ -1677,31 +1379,6 @@ export const games: Game[] = [
             [
                 "O jogo introduziu o power-up Traje de Gato.",
                 "Mais tarde, foi portado para o Switch com conteúdo adicional.",
-            ],
-        ),
-    },
-    {
-        id: "donkey-kong-tropical-freeze",
-        title: "Donkey Kong Country: Tropical Freeze",
-        coverImage: "",
-        releaseDate: L("February 13, 2014 (Japan)", "13 de fevereiro de 2014 (Japão)"),
-        releaseYear: 2014,
-        publisher: "Nintendo",
-        developer: "Retro Studios",
-        platform: "Wii U",
-        genre: L("Platformer", "Plataforma"),
-        description: L(
-            "Donkey Kong and friends fight through a frozen archipelago to reclaim their island. Precise platforming and a dynamic soundtrack made it a modern high point for the series.",
-            "Donkey Kong e seus amigos atravessam um arquipélago congelado para recuperar sua ilha. Plataforma precisa e uma trilha dinâmica fizeram dele um ponto alto moderno da série.",
-        ),
-        trivia: T(
-            [
-                "It was developed by Retro Studios, with music by David Wise.",
-                "The game was later ported to the Nintendo Switch.",
-            ],
-            [
-                "Foi desenvolvido pela Retro Studios, com música de David Wise.",
-                "O jogo foi posteriormente portado para o Nintendo Switch.",
             ],
         ),
     },
@@ -1808,31 +1485,6 @@ export const games: Game[] = [
         ),
     },
     {
-        id: "horizon-zero-dawn",
-        title: "Horizon Zero Dawn",
-        coverImage: "",
-        releaseDate: L("February 28, 2017 (North America)", "28 de fevereiro de 2017 (América do Norte)"),
-        releaseYear: 2017,
-        publisher: "Sony Interactive Entertainment",
-        developer: "Guerrilla Games",
-        platform: "PlayStation 4",
-        genre: L("Action role-playing", "RPG de ação"),
-        description: L(
-            "Aloy explores a lush world ruled by animal-like machines while uncovering the fate of humanity. Its unique premise and ranged combat gave the PS4 one of its most striking new worlds.",
-            "Aloy explora um mundo exuberante governado por máquinas semelhantes a animais enquanto descobre o destino da humanidade. Sua premissa única e combate à distância deram ao PS4 um de seus mundos mais marcantes.",
-        ),
-        trivia: T(
-            [
-                "It was developed by Guerrilla Games, previously known for the Killzone series.",
-                "The game's robotic creatures are inspired by both animals and ancient cultures.",
-            ],
-            [
-                "Foi desenvolvido pela Guerrilla Games, antes conhecida pela série Killzone.",
-                "As criaturas robóticas são inspiradas tanto em animais quanto em culturas antigas.",
-            ],
-        ),
-    },
-    {
         id: "god-of-war-2018",
         title: "God of War",
         coverImage: "",
@@ -1884,31 +1536,6 @@ export const games: Game[] = [
     },
 
     // ── XBOX ONE ─────────────────────────────────────────────────────────
-    {
-        id: "halo-5",
-        title: "Halo 5: Guardians",
-        coverImage: "",
-        releaseDate: L("October 27, 2015 (Worldwide)", "27 de outubro de 2015 (Mundial)"),
-        releaseYear: 2015,
-        publisher: "Microsoft Studios",
-        developer: "343 Industries",
-        platform: "Xbox One",
-        genre: L("First-person shooter", "Tiro em primeira pessoa"),
-        description: L(
-            "Master Chief and Spartan Locke pursue the same mystery from opposite sides. Squad-based combat and a strong multiplayer suite made it a major Xbox One shooter.",
-            "Master Chief e o Spartan Locke perseguem o mesmo mistério por lados opostos. Combate em esquadrão e um multiplayer robusto fizeram dele um dos principais shooters do Xbox One.",
-        ),
-        trivia: T(
-            [
-                "It was the first mainline Halo game developed by 343 Industries.",
-                "The campaign supports four-player cooperative play.",
-            ],
-            [
-                "Foi o primeiro Halo principal desenvolvido pela 343 Industries.",
-                "A campanha suporta cooperativo para quatro jogadores.",
-            ],
-        ),
-    },
     {
         id: "ori-and-the-blind-forest",
         title: "Ori and the Blind Forest",
@@ -2111,31 +1738,6 @@ export const games: Game[] = [
             ],
         ),
     },
-    {
-        id: "mario-kart-8-deluxe",
-        title: "Mario Kart 8 Deluxe",
-        coverImage: "",
-        releaseDate: L("April 28, 2017 (Worldwide)", "28 de abril de 2017 (Mundial)"),
-        releaseYear: 2017,
-        publisher: "Nintendo",
-        developer: "Nintendo EPD",
-        platform: "Nintendo Switch",
-        genre: L("Racing", "Corrida"),
-        description: L(
-            "The Wii U hit arrived on Switch with all its courses, new characters and refined battle modes. It became the definitive version of one of the best-loved racing games ever made.",
-            "O sucesso do Wii U chegou ao Switch com todas as pistas, novos personagens e modos de batalha refinados. Tornou-se a versão definitiva de um dos jogos de corrida mais amados de todos os tempos.",
-        ),
-        trivia: T(
-            [
-                "It was the best-selling game on the Nintendo Switch.",
-                "The Deluxe version restored the classic battle mode from earlier entries.",
-            ],
-            [
-                "Foi o jogo mais vendido do Nintendo Switch.",
-                "A versão Deluxe restaurou o modo de batalha clássico das entradas anteriores.",
-            ],
-        ),
-    },
 
     // ── PLAYSTATION 5 ────────────────────────────────────────────────────
     {
@@ -2213,54 +1815,235 @@ export const games: Game[] = [
             ],
         ),
     },
+
     {
-        id: "returnal",
-        title: "Returnal",
+        id: "spider-man-2",
+        title: "Marvel's Spider-Man 2",
         coverImage: "",
-        releaseDate: L("April 30, 2021 (Worldwide)", "30 de abril de 2021 (Mundial)"),
-        releaseYear: 2021,
+        releaseDate: L("October 20, 2023 (Worldwide)", "20 de outubro de 2023 (Mundial)"),
+        releaseYear: 2023,
         publisher: "Sony Interactive Entertainment",
-        developer: "Housemarque",
-        platform: "PlayStation 5",
-        genre: L("Roguelike shooter", "Shooter roguelike"),
-        description: L(
-            "Selene crashes on a hostile alien planet and relives the same cycle after every death. Its tense combat and cryptic story made it one of the PS5's most distinctive early releases.",
-            "Selene cai em um planeta alienígena hostil e revive o mesmo ciclo após cada morte. Seu combate tenso e história enigmática fizeram dele um dos lançamentos iniciais mais distintos do PS5.",
-        ),
-        trivia: T(
-            [
-                "It was developed by Housemarque, known for arcade-style shooters.",
-                "The game uses the DualSense's haptic feedback to reflect its alien environments.",
-            ],
-            [
-                "Foi desenvolvido pela Housemarque, conhecida por shooters de estilo arcade.",
-                "O jogo usa o feedback tátil do DualSense para refletir seus ambientes alienígenas.",
-            ],
-        ),
-    },
-    {
-        id: "god-of-war-ragnarok",
-        title: "God of War Ragnarök",
-        coverImage: "",
-        releaseDate: L("November 9, 2022 (Worldwide)", "9 de novembro de 2022 (Mundial)"),
-        releaseYear: 2022,
-        publisher: "Sony Interactive Entertainment",
-        developer: "Santa Monica Studio",
+        developer: "Insomniac Games",
         platform: "PlayStation 5",
         genre: L("Action-adventure", "Ação e aventura"),
         description: L(
-            "Kratos and Atreus face the coming of Ragnarök across all nine realms. Its emotional scale and refined combat close the Norse chapter of the series.",
-            "Kratos e Atreus enfrentam a chegada do Ragnarök pelos nove reinos. Sua escala emocional e combate refinado encerram o capítulo nórdico da série.",
+            "Peter Parker and Miles Morales swing across a larger New York as Venom and Kraven the Hunter close in. Faster traversal and dual-protagonist combat made it Insomniac's biggest superhero spectacle.",
+            "Peter Parker e Miles Morales balançam por uma Nova York maior enquanto Venom e Kraven, o Caçador, se aproximam. Travessia mais rápida e combate com dois protagonistas fizeram dele o maior espetáculo de super-herói da Insomniac.",
         ),
         trivia: T(
             [
-                "It concludes the Norse mythology saga begun in God of War (2018).",
-                "The game was directed by Eric Williams.",
+                "It continues the stories of Marvel's Spider-Man (2018) and Spider-Man: Miles Morales.",
+                "The game's fast travel is presented as an in-universe subway ride.",
             ],
             [
-                "Conclui a saga da mitologia nórdica iniciada em God of War (2018).",
-                "O jogo foi dirigido por Eric Williams.",
+                "Continua as histórias de Marvel's Spider-Man (2018) e Spider-Man: Miles Morales.",
+                "A viagem rápida do jogo é apresentada como um trajeto de metrô dentro do universo.",
             ],
         ),
     },
+
+    // ── XBOX SERIES S/X ──────────────────────────────────────────────────
+    {
+        id: "halo-infinite",
+        title: "Halo Infinite",
+        coverImage: "",
+        releaseDate: L("December 8, 2021 (Worldwide)", "8 de dezembro de 2021 (Mundial)"),
+        releaseYear: 2021,
+        publisher: "Xbox Game Studios",
+        developer: "343 Industries",
+        platform: "Xbox Series S/X",
+        genre: L("First-person shooter", "Tiro em primeira pessoa"),
+        description: L(
+            "Master Chief returns to Zeta Halo armed with a grappling hook and a more open-ended campaign. Its free multiplayer and refined sandbox brought the series back to its roots.",
+            "Master Chief retorna a Zeta Halo armado com um gancho e uma campanha mais aberta. Seu multiplayer gratuito e sandbox refinado trouxeram a série de volta às raízes.",
+        ),
+        trivia: T(
+            [
+                "It was a launch title for the Xbox Series X|S.",
+                "The grappling hook was a new addition to the series' sandbox.",
+            ],
+            [
+                "Foi um título de lançamento do Xbox Series X|S.",
+                "O gancho foi uma nova adição ao sandbox da série.",
+            ],
+        ),
+    },
+    {
+        id: "forza-horizon-5",
+        title: "Forza Horizon 5",
+        coverImage: "",
+        releaseDate: L("November 9, 2021 (Worldwide)", "9 de novembro de 2021 (Mundial)"),
+        releaseYear: 2021,
+        publisher: "Xbox Game Studios",
+        developer: "Playground Games",
+        platform: "Xbox Series S/X",
+        genre: L("Racing", "Corrida"),
+        description: L(
+            "An open-world festival races across Mexico, from deserts and jungles to snow-capped volcanoes. Dynamic seasons and a huge car roster made it a showcase for the new consoles.",
+            "Um festival de mundo aberto percorre o México, de desertos e selvas a vulcões cobertos de neve. Estações dinâmicas e um enorme catálogo de carros fizeram dele uma vitrine dos novos consoles.",
+        ),
+        trivia: T(
+            [
+                "Its map is the largest in the Forza Horizon series.",
+                "The game features ray tracing in its Forzavista showcase mode.",
+            ],
+            [
+                "Seu mapa é o maior da série Forza Horizon.",
+                "O jogo apresenta ray tracing no modo de exibição Forzavista.",
+            ],
+        ),
+    },
+    {
+        id: "starfield",
+        title: "Starfield",
+        coverImage: "",
+        releaseDate: L("September 6, 2023 (Worldwide)", "6 de setembro de 2023 (Mundial)"),
+        releaseYear: 2023,
+        publisher: "Bethesda Softworks",
+        developer: "Bethesda Game Studios",
+        platform: "Xbox Series S/X",
+        genre: L("Action role-playing", "RPG de ação"),
+        description: L(
+            "A space explorer joins Constellation to uncover the mystery of alien artifacts across more than a thousand planets. Its ship building and freedom of choice carry Bethesda's formula to the stars.",
+            "Um explorador espacial se junta à Constelação para desvendar o mistério de artefatos alienígenas em mais de mil planetas. A construção de naves e a liberdade de escolha levam a fórmula da Bethesda às estrelas.",
+        ),
+        trivia: T(
+            [
+                "It was Bethesda Game Studios' first new universe in 25 years.",
+                "The game includes over a thousand explorable planets.",
+            ],
+            [
+                "Foi o primeiro novo universo da Bethesda Game Studios em 25 anos.",
+                "O jogo inclui mais de mil planetas exploráveis.",
+            ],
+        ),
+    },
+    {
+        id: "hellblade-2",
+        title: "Senua's Saga: Hellblade II",
+        coverImage: "",
+        releaseDate: L("May 21, 2024 (Worldwide)", "21 de maio de 2024 (Mundial)"),
+        releaseYear: 2024,
+        publisher: "Xbox Game Studios",
+        developer: "Ninja Theory",
+        platform: "Xbox Series S/X",
+        genre: L("Action-adventure", "Ação e aventura"),
+        description: L(
+            "Senua journeys through Iceland to confront Viking raiders and her own inner voices. Its photogrammetry, binaural audio and cinematic presentation push the Series X|S hardware.",
+            "Senua viaja pela Islândia para enfrentar invasores vikings e suas próprias vozes internas. Sua fotogrametria, áudio binaural e apresentação cinematográfica exigem o hardware do Series X|S.",
+        ),
+        trivia: T(
+            [
+                "The development team scanned locations in Iceland for its environments.",
+                "Its sound design was built around binaural audio to portray Senua's voices.",
+            ],
+            [
+                "A equipe escaneou locações na Islândia para criar seus ambientes.",
+                "Seu design de som foi construído em torno de áudio binaural para retratar as vozes de Senua.",
+            ],
+        ),
+    },
+
+    // ── NINTENDO SWITCH 2 ────────────────────────────────────────────────
+    {
+        id: "mario-kart-world",
+        title: "Mario Kart World",
+        coverImage: "",
+        releaseDate: L("June 5, 2025 (Worldwide)", "5 de junho de 2025 (Mundial)"),
+        releaseYear: 2025,
+        publisher: "Nintendo",
+        developer: "Nintendo EPD",
+        platform: "Nintendo Switch 2",
+        genre: L("Racing", "Corrida"),
+        description: L(
+            "The Switch 2 launch title turns the series into an open world, letting racers drive between courses and take on 24-player races. Its connected routes and knockout mode rethink the formula.",
+            "O título de lançamento do Switch 2 transforma a série em mundo aberto, permitindo dirigir entre pistas e disputar corridas de 24 jogadores. Suas rotas conectadas e o modo eliminatório repensam a fórmula.",
+        ),
+        trivia: T(
+            [
+                "It launched alongside the Nintendo Switch 2.",
+                "Races support up to 24 players, the largest grid in the series.",
+            ],
+            [
+                "Foi lançado junto com o Nintendo Switch 2.",
+                "As corridas suportam até 24 jogadores, o maior grid da série.",
+            ],
+        ),
+    },
+    {
+        id: "donkey-kong-bananza",
+        title: "Donkey Kong Bananza",
+        coverImage: "",
+        releaseDate: L("July 17, 2025 (Worldwide)", "17 de julho de 2025 (Mundial)"),
+        releaseYear: 2025,
+        publisher: "Nintendo",
+        developer: "Nintendo EPD",
+        platform: "Nintendo Switch 2",
+        genre: L("3D platformer", "Plataforma 3D"),
+        description: L(
+            "Donkey Kong tunnels through fully destructible layers of earth in a 3D platformer built around smashing and digging. Its playful destruction showcases the Switch 2's power.",
+            "Donkey Kong atravessa camadas de terra totalmente destrutíveis em um plataforma 3D construído em torno de quebrar e cavar. Sua destruição divertida demonstra a potência do Switch 2.",
+        ),
+        trivia: T(
+            [
+                "It is the first 3D Donkey Kong platformer since Donkey Kong 64.",
+                "Most of the terrain in the game can be destroyed or dug through.",
+            ],
+            [
+                "É o primeiro plataforma 3D do Donkey Kong desde Donkey Kong 64.",
+                "A maior parte do terreno do jogo pode ser destruída ou escavada.",
+            ],
+        ),
+    },
+    {
+        id: "kirby-air-riders",
+        title: "Kirby Air Riders",
+        coverImage: "",
+        releaseDate: L("November 20, 2025 (Worldwide)", "20 de novembro de 2025 (Mundial)"),
+        releaseYear: 2025,
+        publisher: "Nintendo",
+        developer: "Bandai Namco Studios; Sora Ltd.",
+        platform: "Nintendo Switch 2",
+        genre: L("Racing", "Corrida"),
+        description: L(
+            "Kirby rides air machines through fast, chaotic courses in a follow-up to the GameCube cult classic. Simple controls and deep customization make it a party racing game with surprising depth.",
+            "Kirby pilota máquinas voadoras por pistas rápidas e caóticas nesta continuação do cultuado jogo do GameCube. Controles simples e personalização profunda fazem dele um jogo de corrida para festas com profundidade surpreendente.",
+        ),
+        trivia: T(
+            [
+                "It is directed by Masahiro Sakurai, creator of Kirby and Super Smash Bros.",
+                "The game is a sequel to Kirby Air Ride, released on the GameCube in 2003.",
+            ],
+            [
+                "É dirigido por Masahiro Sakurai, criador de Kirby e Super Smash Bros.",
+                "O jogo é uma sequência de Kirby Air Ride, lançado para o GameCube em 2003.",
+            ],
+        ),
+    },
+    {
+        id: "metroid-prime-4",
+        title: "Metroid Prime 4: Beyond",
+        coverImage: "",
+        releaseDate: L("December 4, 2025 (Worldwide)", "4 de dezembro de 2025 (Mundial)"),
+        releaseYear: 2025,
+        publisher: "Nintendo",
+        developer: "Retro Studios",
+        platform: "Nintendo Switch 2",
+        genre: L("First-person action-adventure", "Ação e aventura em primeira pessoa"),
+        description: L(
+            "Samus Aran returns in a new first-person adventure, exploring the planet Viewros and wielding psychic abilities. It brings the Prime series to a new generation with modern controls and presentation.",
+            "Samus Aran retorna em uma nova aventura em primeira pessoa, explorando o planeta Viewros e usando habilidades psíquicas. Ela leva a série Prime a uma nova geração com controles e apresentação modernos.",
+        ),
+        trivia: T(
+            [
+                "It is the first new mainline Metroid Prime game since 2007.",
+                "Development was moved to Retro Studios in 2019 and restarted.",
+            ],
+            [
+                "É o primeiro jogo principal inédito de Metroid Prime desde 2007.",
+                "O desenvolvimento foi transferido para a Retro Studios em 2019 e recomeçado.",
+            ],
+        ),
+    },
+
 ];

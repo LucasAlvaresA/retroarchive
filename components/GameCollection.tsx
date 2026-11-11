@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { SlidersHorizontal } from "lucide-react";
+import { ChevronDown, SlidersHorizontal } from "lucide-react";
 import { games, platformOrder, type Game, type Platform } from "@/data/games";
 import { useLanguage } from "@/lib/i18n";
 import GameCard from "./GameCard";
@@ -9,9 +9,12 @@ import GameDetailsModal from "./GameDetailsModal";
 
 type Filter = "all" | Platform;
 
+const PAGE_SIZE = 8;
+
 export default function GameCollection() {
     const { t } = useLanguage();
     const [activeFilter, setActiveFilter] = useState<Filter>("all");
+    const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
     const [selectedGame, setSelectedGame] = useState<Game | null>(null);
 
     const filters: Filter[] = useMemo(
@@ -19,13 +22,29 @@ export default function GameCollection() {
         [],
     );
 
-    const visibleGames = useMemo(
+    const filteredGames = useMemo(
         () =>
             activeFilter === "all"
                 ? games
                 : games.filter((game) => game.platform === activeFilter),
         [activeFilter],
     );
+
+    const visibleGames = useMemo(
+        () =>
+            activeFilter === "all"
+                ? filteredGames.slice(0, visibleCount)
+                : filteredGames,
+        [activeFilter, filteredGames, visibleCount],
+    );
+
+    const hasMore =
+        activeFilter === "all" && visibleCount < filteredGames.length;
+
+    const handleFilterChange = (filter: Filter) => {
+        setActiveFilter(filter);
+        setVisibleCount(PAGE_SIZE);
+    };
 
     return (
         <section className="collection section-shell" id="collection">
@@ -42,7 +61,7 @@ export default function GameCollection() {
                         {t.collection.titleBefore}{" "}
                         <em>{t.collection.titleAccent}</em>
                         <sup>
-                            ({String(visibleGames.length).padStart(2, "0")})
+                            ({String(filteredGames.length).padStart(2, "0")})
                         </sup>
                     </h2>
                 </div>
@@ -63,7 +82,7 @@ export default function GameCollection() {
                             className={`filter-chip ${
                                 activeFilter === filter ? "active" : ""
                             }`}
-                            onClick={() => setActiveFilter(filter)}
+                            onClick={() => handleFilterChange(filter)}
                             aria-pressed={activeFilter === filter}
                         >
                             {filter === "all"
@@ -73,7 +92,7 @@ export default function GameCollection() {
                     ))}
                 </div>
             </div>
-            <div className="game-grid">
+            <div className="game-grid" id="game-grid">
                 {visibleGames.map((game, index) => (
                     <GameCard
                         key={game.id}
@@ -83,6 +102,26 @@ export default function GameCollection() {
                     />
                 ))}
             </div>
+            {hasMore && (
+                <div className="load-more-wrap">
+                    <button
+                        type="button"
+                        className="load-more-button"
+                        onClick={() =>
+                            setVisibleCount((count) =>
+                                Math.min(
+                                    count + PAGE_SIZE,
+                                    filteredGames.length,
+                                ),
+                            )
+                        }
+                        aria-controls="game-grid"
+                    >
+                        {t.collection.loadMore}
+                        <ChevronDown size={15} aria-hidden="true" />
+                    </button>
+                </div>
+            )}
             <div className="collection-bottom">
                 <span>{t.collection.end}</span>
                 <span>
