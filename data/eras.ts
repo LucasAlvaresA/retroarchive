@@ -22,7 +22,7 @@ export const eras: Era[] = [
             "A new kind of gathering place. Bright cabinets, high scores and the thrill of one more go.",
             "Um novo tipo de ponto de encontro. Gabinetes brilhantes, recordes e a emoção de jogar mais uma vez.",
         ),
-        image: "/images/era-01.jpg",
+        image: "/images/era-1.webp",
     },
     {
         number: "02",
@@ -33,7 +33,7 @@ export const eras: Era[] = [
             "Home consoles brought entire worlds into the living room, one carefully placed pixel at a time.",
             "Os consoles domésticos levaram mundos inteiros para a sala de estar, um pixel cuidadosamente posicionado de cada vez.",
         ),
-        image: "/images/era-02.jpg",
+        image: "/images/era-2.png",
     },
     {
         number: "03",
@@ -44,7 +44,7 @@ export const eras: Era[] = [
             "Bigger sprites, richer sound and fast-moving adventures pushed 2D design to new heights.",
             "Sprites maiores, som mais rico e aventuras velozes elevaram o design 2D a novos patamares.",
         ),
-        image: "/images/era-03.jpg",
+        image: "/images/era-3.jpg",
     },
     {
         number: "04",
@@ -55,7 +55,7 @@ export const eras: Era[] = [
             "CD audio and polygonal worlds opened a new chapter for cinematic play and experimentation.",
             "Áudio em CD e mundos poligonais abriram um novo capítulo para a experimentação e o jogo cinematográfico.",
         ),
-        image: "/images/era-04.jpg",
+        image: "/images/era-4.webp",
     },
     {
         number: "05",
@@ -66,7 +66,7 @@ export const eras: Era[] = [
             "Analog movement, vast spaces and new perspectives changed how players explored game worlds.",
             "Movimento analógico, espaços vastos e novas perspectivas mudaram a forma como os jogadores exploravam os mundos dos jogos.",
         ),
-        image: "/images/era-05.jpg",
+        image: "/images/era-5.jpg",
     },
     {
         number: "06",
@@ -77,7 +77,7 @@ export const eras: Era[] = [
             "Broadband, memory cards and online services turned consoles into shared worlds. LAN parties moved into living rooms, and a headset became part of the ritual.",
             "Banda larga, memory cards e serviços online transformaram os consoles em mundos compartilhados. As LAN parties chegaram às salas de estar, e o headset virou parte do ritual.",
         ),
-        accent: "#7088ff",
+        image: "/images/era-6.jpeg",
     },
     {
         number: "07",
@@ -88,7 +88,7 @@ export const eras: Era[] = [
             "High-definition screens sharpened every detail while motion controls invited new players to stand up and play together.",
             "Telas em alta definição aguçaram cada detalhe, enquanto os controles de movimento convidaram novos jogadores a se levantar e jogar juntos.",
         ),
-        accent: "#9be36b",
+        image: "/images/era-7.jpg",
     },
     {
         number: "08",
@@ -99,7 +99,7 @@ export const eras: Era[] = [
             "Digital storefronts, patches and online updates changed games from finished objects into worlds that kept evolving after launch.",
             "Lojas digitais, patches e atualizações online transformaram os jogos de objetos acabados em mundos que continuavam a evoluir após o lançamento.",
         ),
-        accent: "#ae98ff",
+        image: "/images/era-8.jpg",
     },
     {
         number: "09",
@@ -110,7 +110,7 @@ export const eras: Era[] = [
             "Smaller studios and accessible tools brought bold experiments back to the spotlight, proving that a great idea needs no giant budget.",
             "Estúdios menores e ferramentas acessíveis trouxeram experimentos ousados de volta aos holofotes, provando que uma grande ideia não precisa de um orçamento gigante.",
         ),
-        accent: "#ff9a62",
+        image: "/images/era-9.jpg",
     },
     {
         number: "10",
@@ -121,7 +121,7 @@ export const eras: Era[] = [
             "Battle royales, cross-play and live events made games social spaces that changed every season and welcomed players across platforms.",
             "Battle royales, cross-play e eventos ao vivo transformaram jogos em espaços sociais que mudavam a cada temporada e recebiam jogadores de todas as plataformas.",
         ),
-        accent: "#4dd6c1",
+        image: "/images/era-10.webp",
     },
     {
         number: "11",
@@ -132,6 +132,6 @@ export const eras: Era[] = [
             "Ray tracing, near-instant loading, cloud streaming and hybrid play closed the gap between console, PC and handheld. The archive keeps growing.",
             "Ray tracing, carregamento quase instantâneo, streaming em nuvem e o jogo híbrido encurtaram a distância entre console, PC e portátil. O arquivo continua crescendo.",
         ),
-        accent: "#7ad7ff",
+        image: "/images/era-11.webp",
     },
 ];

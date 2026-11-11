@@ -34,10 +34,16 @@ components/
   Header.tsx
 data/
   games.ts
+  game-catalog/
+  game-details/
+  game-details.ts
+scripts/
+  validate-games.cjs
 ```
 
 ## Notes
-- All game metadata is stored locally in `data/games.ts`.
+- The compact game catalog is grouped by platform in `data/game-catalog/`; long descriptions and trivia are grouped in `data/game-details/` and loaded when a game is opened.
+- Run `npm run validate:data` to check catalog/detail consistency, localized fields, platform assignments and referenced cover files. Missing and unreferenced cover art is reported for curation; the UI fallback remains supported.
 - Collection filters and the game details modal run entirely in React state.
 - Modal supports backdrop click, Escape, and background scroll locking.
 - Cover art uses Wikimedia file redirects; a designed fallback cover is shown if a remote cover file is unavailable. The timeline uses remote editorial photography.

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
 import { useState } from "react";
-import { platformAccents, type Game } from "@/data/games";
+import { platformAccents, type GameSummary } from "@/data/games";
 import { useLanguage } from "@/lib/i18n";
 
 export default function GameCard({
@@ -12,9 +12,9 @@ export default function GameCard({
     index,
     onSelect,
 }: {
-    game: Game;
+    game: GameSummary;
     index: number;
-    onSelect: (game: Game) => void;
+    onSelect: (game: GameSummary) => void;
 }) {
     const { t } = useLanguage();
     const [imageFailed, setImageFailed] = useState(false);

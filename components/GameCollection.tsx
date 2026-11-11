@@ -2,7 +2,12 @@
 
 import { useMemo, useState } from "react";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
-import { games, platformOrder, type Game, type Platform } from "@/data/games";
+import {
+    games,
+    platformOrder,
+    type GameSummary,
+    type Platform,
+} from "@/data/games";
 import { useLanguage } from "@/lib/i18n";
 import GameCard from "./GameCard";
 import GameDetailsModal from "./GameDetailsModal";
@@ -15,7 +20,7 @@ export default function GameCollection() {
     const { t } = useLanguage();
     const [activeFilter, setActiveFilter] = useState<Filter>("all");
     const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-    const [selectedGame, setSelectedGame] = useState<Game | null>(null);
+    const [selectedGame, setSelectedGame] = useState<GameSummary | null>(null);
 
     const filters: Filter[] = useMemo(
         () => ["all", ...platformOrder],

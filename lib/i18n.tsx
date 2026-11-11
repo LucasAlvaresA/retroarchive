@@ -90,6 +90,8 @@ const en = {
         facts: "FACTS",
         preserved: "PRESERVED IN THE RETROARCHIVE COLLECTION",
         coverAlt: "cover artwork",
+        loadingDetails: "Loading game details...",
+        detailsUnavailable: "Game details could not be loaded. Please try again.",
     },
     timeline: {
         topLeft: "02 / A BRIEF HISTORY",
@@ -210,6 +212,8 @@ const pt: typeof en = {
         facts: "FATOS",
         preserved: "PRESERVADO NA COLEÇÃO RETROARCHIVE",
         coverAlt: "capa do jogo",
+        loadingDetails: "Carregando detalhes do jogo...",
+        detailsUnavailable: "Não foi possível carregar os detalhes. Tente novamente.",
     },
     timeline: {
         topLeft: "02 / UMA BREVE HISTÓRIA",

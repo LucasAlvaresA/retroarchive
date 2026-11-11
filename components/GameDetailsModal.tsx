@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
     ArrowUpRight,
@@ -11,17 +11,50 @@ import {
     X,
 } from "lucide-react";
 import type { CSSProperties } from "react";
-import { platformAccents, type Game } from "@/data/games";
+import {
+    platformAccents,
+    type GameDetails,
+    type GameSummary,
+} from "@/data/games";
+import { getGameDetails } from "@/data/game-details";
 import { useLanguage } from "@/lib/i18n";
 
 export default function GameDetailsModal({
     game,
     onClose,
 }: {
-    game: Game | null;
+    game: GameSummary | null;
     onClose: () => void;
 }) {
     const { lang, t } = useLanguage();
+    const [details, setDetails] = useState<GameDetails | null>(null);
+    const [detailsError, setDetailsError] = useState(false);
+
+    useEffect(() => {
+        if (!game) {
+            setDetails(null);
+            setDetailsError(false);
+            return;
+        }
+
+        let cancelled = false;
+        setDetails(null);
+        setDetailsError(false);
+
+        getGameDetails(game).then(
+            (gameDetails) => {
+                if (!cancelled) setDetails(gameDetails);
+            },
+            (error: unknown) => {
+                console.error(`Failed to load details for "${game.id}".`, error);
+                if (!cancelled) setDetailsError(true);
+            },
+        );
+
+        return () => {
+            cancelled = true;
+        };
+    }, [game]);
 
     useEffect(() => {
         if (!game) return;
@@ -108,54 +141,75 @@ export default function GameDetailsModal({
                                 {t.modal.entry} · {game.releaseYear}
                             </div>
                             <h2 id="modal-title">{game.title}</h2>
-                            <p className="modal-description">
-                                {game.description[lang]}
-                            </p>
-                            <div className="detail-grid">
-                                <div>
-                                    <CalendarDays />
-                                    <span>{t.modal.originalRelease}</span>
-                                    <strong>{game.releaseDate[lang]}</strong>
-                                </div>
-                                <div>
-                                    <Gamepad2 />
-                                    <span>{t.modal.platform}</span>
-                                    <strong>{game.platform}</strong>
-                                </div>
-                                <div>
-                                    <Disc3 />
-                                    <span>{t.modal.genre}</span>
-                                    <strong>{game.genre[lang]}</strong>
-                                </div>
-                                <div>
-                                    <Layers3 />
-                                    <span>{t.modal.publisher}</span>
-                                    <strong>{game.publisher}</strong>
-                                </div>
-                                <div className="detail-wide">
-                                    <span>{t.modal.developedBy}</span>
-                                    <strong>{game.developer}</strong>
-                                </div>
-                            </div>
-                            <div className="trivia-block">
-                                <div className="trivia-heading">
-                                    <span>{t.modal.fieldNotes}</span>
-                                    <span>
-                                        {String(
-                                            game.trivia[lang].length,
-                                        ).padStart(2, "0")}{" "}
-                                        / {t.modal.facts}
-                                    </span>
-                                </div>
-                                <ul>
-                                    {game.trivia[lang].map((fact, i) => (
-                                        <li key={i}>
-                                            <span>0{i + 1}</span>
-                                            {fact}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                            {details ? (
+                                <>
+                                    <p className="modal-description">
+                                        {details.description[lang]}
+                                    </p>
+                                    <div className="detail-grid">
+                                        <div>
+                                            <CalendarDays />
+                                            <span>
+                                                {t.modal.originalRelease}
+                                            </span>
+                                            <strong>
+                                                {details.releaseDate[lang]}
+                                            </strong>
+                                        </div>
+                                        <div>
+                                            <Gamepad2 />
+                                            <span>{t.modal.platform}</span>
+                                            <strong>{game.platform}</strong>
+                                        </div>
+                                        <div>
+                                            <Disc3 />
+                                            <span>{t.modal.genre}</span>
+                                            <strong>
+                                                {details.genre[lang]}
+                                            </strong>
+                                        </div>
+                                        <div>
+                                            <Layers3 />
+                                            <span>{t.modal.publisher}</span>
+                                            <strong>{details.publisher}</strong>
+                                        </div>
+                                        <div className="detail-wide">
+                                            <span>{t.modal.developedBy}</span>
+                                            <strong>{details.developer}</strong>
+                                        </div>
+                                    </div>
+                                    <div className="trivia-block">
+                                        <div className="trivia-heading">
+                                            <span>{t.modal.fieldNotes}</span>
+                                            <span>
+                                                {String(
+                                                    details.trivia[lang].length,
+                                                ).padStart(2, "0")}{" "}
+                                                / {t.modal.facts}
+                                            </span>
+                                        </div>
+                                        <ul>
+                                            {details.trivia[lang].map(
+                                                (fact, i) => (
+                                                    <li key={i}>
+                                                        <span>0{i + 1}</span>
+                                                        {fact}
+                                                    </li>
+                                                ),
+                                            )}
+                                        </ul>
+                                    </div>
+                                </>
+                            ) : (
+                                <p
+                                    className="modal-description"
+                                    role={detailsError ? "alert" : "status"}
+                                >
+                                    {detailsError
+                                        ? t.modal.detailsUnavailable
+                                        : t.modal.loadingDetails}
+                                </p>
+                            )}
                             <div className="modal-footnote">
                                 {t.modal.preserved} <ArrowUpRight size={13} />
                             </div>
