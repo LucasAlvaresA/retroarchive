@@ -63,7 +63,7 @@ const en = {
     },
     collection: {
         topLeft: "03 / THE COLLECTION",
-        topRight: "CURATED CLASSICS · 1985—2025",
+        topRight: "CURATED CLASSICS · 1977—2025",
         eyebrow: "A CONSOLE-BY-CONSOLE INTRODUCTION",
         titleBefore: "4 GAMES TO",
         titleAccent: "DISCOVER EACH CONSOLE",
@@ -112,7 +112,7 @@ const en = {
     },
     consoles: {
         topLeft: "02 / THE HARDWARE",
-        topRight: "TWENTY MACHINES · ONE OBSESSION",
+        topRight: "THIRTY MACHINES · ONE OBSESSION",
         eyebrow: "THE MACHINES THAT MADE IT HAPPEN",
         titleBefore: "CONSOLES",
         titleAccent: "IN THE ARCHIVE",
@@ -221,7 +221,7 @@ const pt: typeof en = {
     },
     collection: {
         topLeft: "03 / A COLEÇÃO",
-        topRight: "CLÁSSICOS CURADOS · 1985—2025",
+        topRight: "CLÁSSICOS CURADOS · 1977—2025",
         eyebrow: "UMA INTRODUÇÃO A CADA CONSOLE",
         titleBefore: "4 JOGOS PARA",
         titleAccent: "CONHECER CADA CONSOLE",
@@ -270,7 +270,7 @@ const pt: typeof en = {
     },
     consoles: {
         topLeft: "02 / O HARDWARE",
-        topRight: "VINTE MÁQUINAS · UMA OBSESSÃO",
+        topRight: "TRINTA MÁQUINAS · UMA OBSESSÃO",
         eyebrow: "AS MÁQUINAS QUE FIZERAM TUDO ACONTECER",
         titleBefore: "CONSOLES",
         titleAccent: "NO ARQUIVO",
