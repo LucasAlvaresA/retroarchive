@@ -1,0 +1,34 @@
+/* Legacy site header and navigation */
+.site-header {
+  height: 82px; padding: 0 var(--gutter); display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--line); background: rgba(9, 9, 16, .84); backdrop-filter: blur(20px);
+  position: sticky; top: 0; z-index: 30;
+}
+.brand { display: inline-flex; align-items: center; gap: 11px; font: 700 13px var(--display); letter-spacing: .13em; white-space: nowrap; }
+.brand-mark { width: 36px; height: 36px; border: 1px solid rgba(174,152,255,.55); border-radius: 10px; display: grid; place-items: center; color: var(--violet); background: rgba(174,152,255,.08); }
+.brand-light { font-weight: 400; color: #aaa6b8; }
+.nav-links { display: flex; align-items: center; gap: clamp(24px, 3.2vw, 48px); color: #aaa7b8; font-size: 12px; }
+.nav-links a { transition: color .2s ease; }
+.nav-links a:hover { color: var(--acid); }
+.nav-index { font: 10px var(--mono); letter-spacing: .08em; color: var(--violet) !important; border-left: 1px solid var(--line); padding-left: 27px; }
+.nav-index span { padding-left: 8px; }
+.mobile-menu { display: none; background: none; border: 0; color: var(--ink); cursor: pointer; }
+@media (max-width: 760px) {
+  .site-header { height: 70px; padding: 0 6%; }
+  .mobile-menu { display: block; z-index: 3; }
+  .nav-links { display: none; position: absolute; top: 69px; left: 0; right: 0; padding: 24px 6% 28px; background: rgba(10,10,18,.98); border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 23px; }
+  .nav-links.nav-open { display: flex; }
+  .nav-index { border-left: 0; padding-left: 0; }
+}
+
+.site-header { border-bottom-color: rgba(226,220,255,.11); }
+.brand { letter-spacing: .1em; }
+.brand-mark { border-radius: 50%; }
+.nav-links { font-size: 13px; }
+.nav-links a:not(.nav-index) { position: relative; padding: 8px 0; }
+.nav-links a:not(.nav-index)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 1px; height: 1px; background: var(--acid); transition: right .24s ease; }
+.nav-links a:not(.nav-index):hover::after { right: 0; }
+
+@media (max-width: 760px) {
+  .brand-mark { border-radius: 10px; }
+}

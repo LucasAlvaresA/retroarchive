@@ -1,0 +1,43 @@
+/* About section */
+.about-section { padding-top: clamp(90px,9vw,130px); padding-bottom: clamp(100px,10vw,140px); }
+.about-layout { display: grid; grid-template-columns: 1.02fr .98fr; gap: clamp(42px,7vw,105px); align-items: center; padding-top: 58px; }
+.about-art { height: 440px; position: relative; overflow: hidden; border: 1px solid rgba(174,152,255,.22); background: radial-gradient(ellipse at 50% 54%,#302747,#171423 59%,#0f0e18); display: grid; place-items: center; }
+.about-art-grid { position: absolute; inset: 0; opacity: .13; background-image: linear-gradient(rgba(174,152,255,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(174,152,255,.3) 1px,transparent 1px); background-size: 31px 31px; mask-image: linear-gradient(transparent,#000 20% 80%,transparent); }
+.art-stamp { position: absolute; z-index: 2; top: 22px; left: 22px; color: var(--acid); line-height: 1.6; border: 1px solid rgba(212,243,106,.4); padding: 8px 10px; font-size: 8px; }
+.about-sleeves { position: relative; z-index: 1; width: 76%; height: 76%; display: flex; align-items: center; justify-content: center; perspective: 900px; }
+.about-sleeve { position: absolute; width: 43%; height: 91%; padding: 7px; background: #15131f; border: 1px solid rgba(255,255,255,.23); box-shadow: 0 24px 45px rgba(0,0,0,.45); }
+.about-sleeve img { width: 100%; height: 100%; object-fit: contain; display: block; background: #0c0b12; }
+.about-sleeve-1 { transform: translateX(-75%) rotate(-10deg) translateY(15px); }
+.about-sleeve-2 { z-index: 2; transform: translateY(-12px) rotate(1deg); }
+.about-sleeve-3 { transform: translateX(75%) rotate(10deg) translateY(15px); }
+.art-caption { position: absolute; bottom: 18px; left: 22px; color: #b1a5d5; font-size: 8px; }
+.about-copy h2 { font: 700 clamp(38px,4.5vw,62px)/1.01 var(--display); letter-spacing: -.075em; margin: 0 0 25px; }
+.about-copy>p { font-size: 13px; line-height: 1.95; color: #a09daf; max-width: 490px; margin: 0 0 16px; }
+.about-signoff { display: flex; align-items: center; gap: 10px; color: var(--acid); margin-top: 31px; font-size: 9px; }
+
+@media (max-width: 1100px) {
+  .about-layout { gap: 5%; }
+}
+@media (max-width: 760px) {
+  .about-section { padding-top: 76px; padding-bottom: 88px; }
+  .about-layout { grid-template-columns: 1fr; gap: 35px; padding-top: 36px; }
+  .about-art { height: 330px; }
+  .about-sleeves { width: 76%; height: 76%; }
+  .about-copy h2 { font-size: clamp(37px,9vw,54px); }
+}
+@media (max-width: 430px) {
+  .about-art { height: 290px; }
+  .about-sleeve { width: 45%; height: 88%; padding: 5px; }
+}
+.about-section { background: radial-gradient(ellipse at 16% 52%,rgba(174,152,255,.035),transparent 36%); }
+.about-layout { gap: clamp(52px,8vw,120px); }
+.about-art { height: auto; aspect-ratio: 1.12; }
+.about-sleeve { width: 53%; height: 76%; }
+.about-copy h2 { letter-spacing: -.07em; }
+.about-copy>p { font-size: 14px; line-height: 1.85; }
+
+@media (max-width: 760px) {
+  .about-art { aspect-ratio: 1.08; height: auto; }
+  .about-sleeve { width: 52%; height: 74%; }
+  .about-copy>p { font-size: 13px; }
+}
