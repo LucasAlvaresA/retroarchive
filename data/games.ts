@@ -1,5 +1,6 @@
 import { dreamcastGames } from "./game-catalog/dreamcast";
 import { gamecubeGames } from "./game-catalog/gamecube";
+import { masterSystemGames } from "./game-catalog/master-system";
 import { megaDriveGames } from "./game-catalog/mega-drive";
 import { nesGames } from "./game-catalog/nes";
 import { nintendo64Games } from "./game-catalog/nintendo-64";
@@ -20,8 +21,9 @@ import { xboxSeriesSXGames } from "./game-catalog/xbox-series-s-x";
 
 export type Platform =
     | "NES"
-    | "SNES"
+    | "Master System"
     | "Mega Drive"
+    | "SNES"
     | "PlayStation"
     | "Nintendo 64"
     | "Dreamcast"
@@ -62,8 +64,9 @@ export type Game = GameSummary & GameDetails;
 
 export const platformOrder: Platform[] = [
     "NES",
-    "SNES",
+    "Master System",
     "Mega Drive",
+    "SNES",
     "PlayStation",
     "Nintendo 64",
     "Dreamcast",
@@ -84,8 +87,9 @@ export const platformOrder: Platform[] = [
 
 export const platformAccents: Record<Platform, string> = {
     NES: "#e46a6a",
-    SNES: "#ae98ff",
+    "Master System": "#f07c6a",
     "Mega Drive": "#5aa9e6",
+    SNES: "#ae98ff",
     PlayStation: "#9aa5b8",
     "Nintendo 64": "#d8f27a",
     Dreamcast: "#ff9a62",
@@ -106,8 +110,9 @@ export const platformAccents: Record<Platform, string> = {
 
 export const games: GameSummary[] = [
     ...nesGames,
-    ...snesGames,
+    ...masterSystemGames,
     ...megaDriveGames,
+    ...snesGames,
     ...playstationGames,
     ...nintendo64Games,
     ...dreamcastGames,

@@ -6,8 +6,9 @@ type GameDetailsModule = {
 
 const detailLoaders: Record<Platform, () => Promise<GameDetailsModule>> = {
     NES: () => import("./game-details/nes"),
-    SNES: () => import("./game-details/snes"),
+    "Master System": () => import("./game-details/master-system"),
     "Mega Drive": () => import("./game-details/mega-drive"),
+    SNES: () => import("./game-details/snes"),
     PlayStation: () => import("./game-details/playstation"),
     "Nintendo 64": () => import("./game-details/nintendo-64"),
     Dreamcast: () => import("./game-details/dreamcast"),

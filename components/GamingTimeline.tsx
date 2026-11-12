@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import type { CSSProperties } from "react";
-import { eras } from "@/data/eras";
+import { useState, type CSSProperties } from "react";
+import { eras, type Era } from "@/data/eras";
 import { useLanguage } from "@/lib/i18n";
+import EraDetailsModal from "./EraDetailsModal";
 
 export default function GamingTimeline() {
     const { lang, t } = useLanguage();
+    const [selectedEra, setSelectedEra] = useState<Era | null>(null);
 
     return (
         <section
@@ -34,11 +36,15 @@ export default function GamingTimeline() {
             </div>
             <div className="era-list">
                 {eras.map((era) => (
-                    <article
-                        className="era-row"
+                    <button
+                        type="button"
+                        className="era-row era-row-button"
                         key={era.number}
+                        onClick={() => setSelectedEra(era)}
+                        aria-haspopup="dialog"
+                        aria-label={`${t.timeline.viewDetails} ${era.name[lang]}`}
                     >
-                        <div className="era-number">{era.number}</div>
+                        <span className="era-number">{era.number}</span>
                         {era.image ? (
                             <div className="era-image">
                                 <Image
@@ -75,9 +81,13 @@ export default function GamingTimeline() {
                         <span className="era-arrow">
                             <ArrowUpRight size={19} />
                         </span>
-                    </article>
+                    </button>
                 ))}
             </div>
+            <EraDetailsModal
+                era={selectedEra}
+                onClose={() => setSelectedEra(null)}
+            />
         </section>
     );
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import {
     ArrowUpRight,
     Gamepad2,
+    Github,
     Globe2,
     History,
     Home,
@@ -14,6 +15,8 @@ import {
 } from "lucide-react";
 import { games, platformOrder } from "@/data/games";
 import { useLanguage } from "@/lib/i18n";
+
+const GITHUB_URL = "https://github.com/LucasAlvaresA";
 
 export default function Sidebar() {
     const { lang, setLang, t } = useLanguage();
@@ -30,17 +33,30 @@ export default function Sidebar() {
             index: "02",
         },
         {
+            id: "consoles",
+            href: "#consoles",
+            label: t.sidebar.consoles,
+            icon: Gamepad2,
+            index: "03",
+        },
+        {
             id: "collection",
             href: "#collection",
             label: t.sidebar.collection,
             icon: LayoutGrid,
-            index: "03",
+            index: "04",
         },
-        { id: "about", href: "#about", label: t.sidebar.about, icon: Sparkles, index: "04" },
+        {
+            id: "about",
+            href: "#about",
+            label: t.sidebar.about,
+            icon: Sparkles,
+            index: "05",
+        },
     ];
 
     useEffect(() => {
-        const sections = ["home", "eras", "collection", "about"]
+        const sections = ["home", "eras", "consoles", "collection", "about"]
             .map((id) => document.getElementById(id))
             .filter((section): section is HTMLElement => section !== null);
 
@@ -241,6 +257,23 @@ export default function Sidebar() {
                                     : "English"}
                             </span>
                         </div>
+
+                        <a
+                            className="sidebar-github"
+                            href={GITHUB_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={t.sidebar.githubAria}
+                        >
+                            <span className="sidebar-github-icon">
+                                <Github size={16} strokeWidth={1.7} />
+                            </span>
+                            <span className="sidebar-github-copy">
+                                <small>{t.sidebar.github}</small>
+                                <strong>@LucasAlvaresA</strong>
+                            </span>
+                            <ArrowUpRight size={13} />
+                        </a>
 
                         <div className="sidebar-foot">
                             <span>{t.sidebar.scrollNote}</span>

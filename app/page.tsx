@@ -1,4 +1,5 @@
 import AboutSection from "@/components/AboutSection";
+import ConsolesSection from "@/components/ConsolesSection";
 import Footer from "@/components/Footer";
 import GameCollection from "@/components/GameCollection";
 import GamingTimeline from "@/components/GamingTimeline";
@@ -11,6 +12,7 @@ export default function Home() {
             <Sidebar />
             <HeroSection />
             <GamingTimeline />
+            <ConsolesSection />
             <GameCollection />
             <AboutSection />
             <Footer />
