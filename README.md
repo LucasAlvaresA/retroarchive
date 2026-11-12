@@ -46,7 +46,7 @@ npm start
 
 ```text
 app/
-  globals.css          # the entire visual system (tokens, layout, responsive rules)
+  styles/              # the entire visual system
   layout.tsx           # fonts, metadata and the language provider
   page.tsx             # composition of the single page
 components/
