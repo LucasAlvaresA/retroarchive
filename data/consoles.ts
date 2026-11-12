@@ -15,6 +15,19 @@ const L = (en: string, pt: string): Localized => ({ en, pt });
 
 export const consoles: ConsoleEntry[] = [
     {
+        id: "atari-2600",
+        platform: "Atari 2600",
+        company: "Atari",
+        releaseYear: 1977,
+        generation: L("2nd generation", "2ª geração"),
+        media: L("Cartridge", "Cartucho"),
+        image: "/images/consoles/atari-2600.png",
+        summary: L(
+            "The console that turned video games into a household habit. Launched in 1977 with swappable cartridges, the Atari 2600 survived the industry crash and gave arcade hits and original ideas a place in the living room.",
+            "O console que transformou videogames em hábito doméstico. Lançado em 1977 com cartuchos intercambiáveis, o Atari 2600 sobreviveu à crise da indústria e deu aos sucessos de arcade e às ideias originais um lugar na sala de estar.",
+        ),
+    },
+    {
         id: "nes",
         platform: "NES",
         company: "Nintendo",
@@ -25,6 +38,19 @@ export const consoles: ConsoleEntry[] = [
         summary: L(
             "Nintendo's 8-bit machine rebuilt the home console market after the crash of 1983. Its strict licensing, durable cartridges and unforgettable first-party library made the NES the template for generations of living-room play.",
             "A máquina 8-bit da Nintendo reconstruiu o mercado de consoles domésticos após a crise de 1983. O licenciamento rigoroso, os cartuchos resistentes e uma biblioteca first-party inesquecível fizeram do NES o modelo para gerações de jogo na sala de estar.",
+        ),
+    },
+    {
+        id: "atari-7800",
+        platform: "Atari 7800",
+        company: "Atari",
+        releaseYear: 1986,
+        generation: L("3rd generation", "3ª geração"),
+        media: L("Cartridge", "Cartucho"),
+        image: "/images/consoles/atari-7800.png",
+        summary: L(
+            "Atari's 1986 return to the console market emphasised backward compatibility and near-arcade ports. It arrived late in the third generation, but its clean conversions and unusual originals earned it a devoted following.",
+            "O retorno da Atari ao mercado de consoles em 1986 apostou na compatibilidade retroativa e em conversões quase idênticas aos arcades. Chegou tarde na terceira geração, mas suas conversões caprichadas e originais incomuns lhe renderam seguidores fiéis.",
         ),
     },
     {
@@ -54,6 +80,19 @@ export const consoles: ConsoleEntry[] = [
         ),
     },
     {
+        id: "game-boy",
+        platform: "Game Boy",
+        company: "Nintendo",
+        releaseYear: 1989,
+        generation: L("4th generation", "4ª geração"),
+        media: L("Game Boy cartridge", "Cartucho Game Boy"),
+        image: "/images/consoles/gameboy.png",
+        summary: L(
+            "Nintendo's grey brick proved that portability could beat technical power. Tetris, Link's Awakening and Pokémon turned short journeys into long adventures and made the Game Boy one of the defining machines of the 1990s.",
+            "O tijolo cinza da Nintendo provou que portabilidade podia vencer potência técnica. Tetris, Link's Awakening e Pokémon transformaram pequenos trajetos em longas aventuras e fizeram do Game Boy uma das máquinas que definiram os anos 1990.",
+        ),
+    },
+    {
         id: "snes",
         platform: "SNES",
         company: "Nintendo",
@@ -67,13 +106,52 @@ export const consoles: ConsoleEntry[] = [
         ),
     },
     {
+        id: "neo-geo-aes",
+        platform: "Neo Geo AES",
+        company: "SNK",
+        releaseYear: 1990,
+        generation: L("4th generation", "4ª geração"),
+        media: L("Cartridge", "Cartucho"),
+        image: "/images/consoles/neogeo.png",
+        summary: L(
+            "SNK's home system brought the arcade board into the living room, with cartridge games that matched the MVS versions and a price to match. Its fighting games and Metal Slug made it a luxury object for arcade purists.",
+            "O sistema doméstico da SNK levou a placa de arcade para a sala de estar, com cartuchos idênticos às versões MVS e um preço à altura. Seus jogos de luta e Metal Slug fizeram dele um objeto de luxo para puristas dos arcades.",
+        ),
+    },
+    {
+        id: "game-gear",
+        platform: "Game Gear",
+        company: "Sega",
+        releaseYear: 1990,
+        generation: L("4th generation", "4ª geração"),
+        media: L("Cartridge", "Cartucho"),
+        image: "/images/consoles/gamegear.png",
+        summary: L(
+            "Sega's colour handheld put a backlit screen and TV-like ambitions into a chunky portable. Its library leaned on arcade ports and Sega mascots, giving players a way to take the Mega Drive spirit on the road.",
+            "O portátil colorido da Sega colocou uma tela iluminada e ambições de TV em um aparelho robusto. Sua biblioteca apostou em conversões de arcade e mascotes da Sega, dando aos jogadores uma forma de levar o espírito do Mega Drive para qualquer lugar.",
+        ),
+    },
+    {
+        id: "sega-saturn",
+        platform: "Sega Saturn",
+        company: "Sega",
+        releaseYear: 1994,
+        generation: L("5th generation", "5ª geração"),
+        media: L("CD-ROM", "CD-ROM"),
+        image: "/images/consoles/saturn.png",
+        summary: L(
+            "Sega's 32-bit machine was built for 2D excellence and arcade fidelity, with a strong Japanese library and a controller made for 3D. Though it struggled commercially in the West, the Saturn is now treasured for its ambitious exclusives.",
+            "A máquina 32-bit da Sega foi feita para a excelência em 2D e fidelidade aos arcades, com uma biblioteca japonesa forte e um controle criado para o 3D. Apesar das dificuldades comerciais no Ocidente, o Saturn é hoje valorizado por seus exclusivos ambiciosos.",
+        ),
+    },
+    {
         id: "playstation",
         platform: "PlayStation",
         company: "Sony",
         releaseYear: 1994,
         generation: L("5th generation", "5ª geração"),
         media: L("CD-ROM", "CD-ROM"),
-        image: "/images/consoles/playstation.png",
+        image: "/images/consoles/ps1.png",
         summary: L(
             "Sony's debut console moved games onto CD-ROM and into a more cinematic register. Its focus on 3D graphics, third-party partnerships and adult-oriented hits turned PlayStation into the first console brand to sell over 100 million units.",
             "O console de estreia da Sony levou os jogos para o CD-ROM e para um registro mais cinematográfico. O foco em gráficos 3D, parcerias com terceiros e sucessos voltados ao público adulto fez do PlayStation a primeira marca de console a vender mais de 100 milhões de unidades.",
@@ -86,7 +164,7 @@ export const consoles: ConsoleEntry[] = [
         releaseYear: 1996,
         generation: L("5th generation", "5ª geração"),
         media: L("Cartridge", "Cartucho"),
-        image: "/images/consoles/nintendo-64.png",
+        image: "/images/consoles/n64.png",
         summary: L(
             "The Nintendo 64 brought analog control, four-player ports and true 3D worlds into the living room. Mario 64 and Ocarina of Time established a grammar for 3D movement that designers still study today.",
             "O Nintendo 64 levou controle analógico, quatro portas de controle e mundos realmente 3D para a sala de estar. Mario 64 e Ocarina of Time estabeleceram uma gramática de movimento 3D que designers ainda estudam hoje.",
@@ -112,7 +190,7 @@ export const consoles: ConsoleEntry[] = [
         releaseYear: 2000,
         generation: L("6th generation", "6ª geração"),
         media: L("DVD-ROM", "DVD-ROM"),
-        image: "/images/consoles/playstation-2.png",
+        image: "/images/consoles/ps2.png",
         summary: L(
             "The PlayStation 2 combined DVD playback with a colossal library and backward compatibility. It became the best-selling console ever, carrying series such as GTA, Final Fantasy and God of War into a new decade.",
             "O PlayStation 2 combinou reprodução de DVD com uma biblioteca colossal e compatibilidade retroativa. Tornou-se o console mais vendido de todos os tempos, levando séries como GTA, Final Fantasy e God of War para uma nova década.",
@@ -145,6 +223,45 @@ export const consoles: ConsoleEntry[] = [
         ),
     },
     {
+        id: "game-boy-advance",
+        platform: "Game Boy Advance",
+        company: "Nintendo",
+        releaseYear: 2001,
+        generation: L("6th generation", "6ª geração"),
+        media: L("Cartridge", "Cartucho"),
+        image: "/images/consoles/gba.png",
+        summary: L(
+            "The Game Boy Advance brought 16-bit-quality visuals and SNES-style controls to a handheld. Its 32-bit hardware hosted original classics such as Golden Sun and Metroid Fusion while keeping the link cable tradition alive.",
+            "O Game Boy Advance levou visuais de qualidade 16-bit e controles no estilo SNES para um portátil. Seu hardware 32-bit abrigou clássicos originais como Golden Sun e Metroid Fusion, mantendo viva a tradição do cabo Link.",
+        ),
+    },
+    {
+        id: "nintendo-ds",
+        platform: "Nintendo DS",
+        company: "Nintendo",
+        releaseYear: 2004,
+        generation: L("7th generation", "7ª geração"),
+        media: L("DS Game Card / GBA cartridge", "Cartão DS / cartucho GBA"),
+        image: "/images/consoles/nintendo-ds.png",
+        summary: L(
+            "Two screens, a stylus and a microphone made the DS an unusual experiment that became a mass phenomenon. Touch controls, local wireless and games such as Mario Kart DS and New Super Mario Bros. opened the hobby to new audiences.",
+            "Duas telas, uma stylus e um microfone fizeram do DS um experimento incomum que se tornou fenômeno de massa. Controles por toque, conexão sem fio local e jogos como Mario Kart DS e New Super Mario Bros. abriram o hobby para novos públicos.",
+        ),
+    },
+    {
+        id: "playstation-portable",
+        platform: "PlayStation Portable",
+        company: "Sony",
+        releaseYear: 2004,
+        generation: L("7th generation", "7ª geração"),
+        media: L("UMD", "UMD"),
+        image: "/images/consoles/psp.png",
+        summary: L(
+            "Sony's first handheld aimed for console-quality graphics, UMD discs and multimedia playback. It became a home for ambitious portable versions of God of War, Grand Theft Auto and Monster Hunter, especially in Japan.",
+            "O primeiro portátil da Sony mirou em gráficos de qualidade de console, discos UMD e reprodução multimídia. Tornou-se lar de versões portáteis ambiciosas de God of War, Grand Theft Auto e Monster Hunter, especialmente no Japão.",
+        ),
+    },
+    {
         id: "xbox-360",
         platform: "Xbox 360",
         company: "Microsoft",
@@ -164,7 +281,7 @@ export const consoles: ConsoleEntry[] = [
         releaseYear: 2006,
         generation: L("7th generation", "7ª geração"),
         media: L("Blu-ray", "Blu-ray"),
-        image: "/images/consoles/playstation-3.png",
+        image: "/images/consoles/ps3.png",
         summary: L(
             "The PlayStation 3 launched with Blu-ray and formidable hardware, then grew into a home for cinematic exclusives. Its late-generation run produced some of the most acclaimed games of the era.",
             "O PlayStation 3 foi lançado com Blu-ray e hardware formidável, e depois se tornou lar de exclusivos cinematográficos. Sua reta final produziu alguns dos jogos mais aclamados da época.",
@@ -184,13 +301,26 @@ export const consoles: ConsoleEntry[] = [
         ),
     },
     {
+        id: "nintendo-3ds",
+        platform: "Nintendo 3DS",
+        company: "Nintendo",
+        releaseYear: 2011,
+        generation: L("8th generation", "8ª geração"),
+        media: L("3DS Game Card", "Cartão 3DS"),
+        image: "/images/consoles/nintendo-3ds.png",
+        summary: L(
+            "The Nintendo 3DS added glasses-free stereoscopic 3D and StreetPass to the dual-screen formula. After a slow start, a strong run of Zelda, Fire Emblem and Animal Crossing games made it a beloved portable.",
+            "O Nintendo 3DS adicionou 3D estereoscópico sem óculos e StreetPass à fórmula de duas telas. Após um início lento, uma sequência forte de jogos de Zelda, Fire Emblem e Animal Crossing o tornou um portátil adorado.",
+        ),
+    },
+    {
         id: "wii-u",
         platform: "Wii U",
         company: "Nintendo",
         releaseYear: 2012,
         generation: L("8th generation", "8ª geração"),
         media: L("Wii U Optical Disc", "Disco óptico Wii U"),
-        image: "/images/consoles/wii-u.png",
+        image: "/images/consoles/wiiu.png",
         summary: L(
             "The Wii U tried to make the controller a second screen, with mixed results. Despite modest sales, it hosted inventive games that later found new life on the Switch.",
             "O Wii U tentou transformar o controle em uma segunda tela, com resultados mistos. Apesar das vendas modestas, abrigou jogos inventivos que depois ganharam nova vida no Switch.",
@@ -203,7 +333,7 @@ export const consoles: ConsoleEntry[] = [
         releaseYear: 2013,
         generation: L("8th generation", "8ª geração"),
         media: L("Blu-ray / digital", "Blu-ray / digital"),
-        image: "/images/consoles/playstation-4.png",
+        image: "/images/consoles/ps4.png",
         summary: L(
             "The PlayStation 4 refocused on games, developers and social sharing after a difficult predecessor. Its exclusives and consistent performance made it the defining console of the eighth generation.",
             "O PlayStation 4 voltou o foco para jogos, desenvolvedores e compartilhamento social depois de um antecessor difícil. Seus exclusivos e desempenho consistente o tornaram o console que definiu a oitava geração.",
@@ -227,9 +357,9 @@ export const consoles: ConsoleEntry[] = [
         platform: "Nintendo Switch",
         company: "Nintendo",
         releaseYear: 2017,
-        generation: L("9th generation", "9ª geração"),
+        generation: L("8th generation", "8ª geração"),
         media: L("Game Card / digital", "Cartão de jogo / digital"),
-        image: "/images/consoles/nintendo-switch.png",
+        image: "/images/consoles/switch.png",
         summary: L(
             "The Switch merged handheld and home play into a single hybrid device. Its portability, local multiplayer and steady stream of first-party hits made it one of Nintendo's most successful systems.",
             "O Switch uniu o jogo portátil e o doméstico em um único aparelho híbrido. A portabilidade, o multiplayer local e o fluxo constante de sucessos first-party o tornaram um dos sistemas mais bem-sucedidos da Nintendo.",
@@ -242,7 +372,7 @@ export const consoles: ConsoleEntry[] = [
         releaseYear: 2020,
         generation: L("9th generation", "9ª geração"),
         media: L("Blu-ray / digital", "Blu-ray / digital"),
-        image: "/images/consoles/xbox-series-s-x.png",
+        image: "/images/consoles/xbox-series.png",
         summary: L(
             "The Series X and the all-digital Series S brought fast SSDs, Quick Resume and high frame rates to Xbox. Backward compatibility and Game Pass tied the new generation to the archive behind it.",
             "O Series X e o Series S totalmente digital trouxeram SSDs rápidos, Quick Resume e altas taxas de quadros para o Xbox. A compatibilidade retroativa e o Game Pass conectaram a nova geração ao arquivo que veio antes.",
@@ -255,7 +385,7 @@ export const consoles: ConsoleEntry[] = [
         releaseYear: 2020,
         generation: L("9th generation", "9ª geração"),
         media: L("Ultra HD Blu-ray / digital", "Ultra HD Blu-ray / digital"),
-        image: "/images/consoles/playstation-5.png",
+        image: "/images/consoles/ps5.png",
         summary: L(
             "The PlayStation 5 paired an ultra-fast SSD with a new controller built around haptic feedback. Its generation has leaned into seamless loading, 60fps modes and ambitious cinematic exclusives.",
             "O PlayStation 5 uniu um SSD ultrarrápido a um novo controle construído em torno do feedback tátil. Sua geração tem apostado em carregamento contínuo, modos a 60fps e exclusivos cinematográficos ambiciosos.",
@@ -268,7 +398,7 @@ export const consoles: ConsoleEntry[] = [
         releaseYear: 2025,
         generation: L("9th generation", "9ª geração"),
         media: L("Game Card / digital", "Cartão de jogo / digital"),
-        image: "/images/consoles/nintendo-switch-2.png",
+        image: "/images/consoles/switch-2.png",
         summary: L(
             "The Switch 2 refines the hybrid formula with more power, larger screens and new social features. It continues Nintendo's strategy of combining portability with shared living-room play.",
             "O Switch 2 refina a fórmula híbrida com mais potência, telas maiores e novos recursos sociais. Ele continua a estratégia da Nintendo de combinar portabilidade com o jogo compartilhado na sala de estar.",
