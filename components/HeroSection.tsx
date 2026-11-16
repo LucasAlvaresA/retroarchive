@@ -38,7 +38,7 @@ export default function HeroSection() {
                     </h1>
                     <div className="hero-bottom">
                         <p>{t.hero.description}</p>
-                        <a href="#collection" className="primary-cta">
+                        <a href="#eras" className="primary-cta">
                             <span>{t.hero.cta}</span>
                             <ArrowUpRight size={17} />
                         </a>
@@ -66,7 +66,9 @@ export default function HeroSection() {
                                         fill
                                         sizes="(max-width: 760px) 25vw, 15vw"
                                         priority={index === 1}
-                                        loading={index === 1 ? undefined : "eager"}
+                                        loading={
+                                            index === 1 ? undefined : "eager"
+                                        }
                                     />
                                 )}
                                 <span>
